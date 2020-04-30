@@ -253,3 +253,81 @@ function scissorsImgC() {
     document.getElementById("RPS").appendChild(scissorsImgC);
         
     }
+
+
+    function changeColour(selectedColour) {
+
+        //var choosenColour = selectedColour;
+        var choosenColour = selectedColour.value;
+        //console.log(choosenColour);
+
+        switch (choosenColour) {
+            case "Red":
+                console.log("Chnage all to Red");
+                changeButtonColourToRed();
+                break;
+            case "Yellow":
+                console.log("Chnage all to Yellow");
+                changeButtonColourToYellow();
+                break;
+            case "Green":
+                console.log("Chnage all to Green");
+                changeButtonColourToGreen();
+                break;
+            case "Random":
+                console.log("Chnage all to Random");
+                changeButtonColourToRandom();
+                break;
+            case "Reset":
+                console.log("Chnage all to Reset");
+                changeButtonColourToReset();
+                break;
+        }
+        
+    }
+
+    var allButtons = document.getElementsByTagName("button");
+    console.log(allButtons);
+    //console.log(allButtons.ClassName);
+
+    var copyAllButtons = [];
+    for (let i = 0; i < allButtons.length; i++) {
+        copyAllButtons.push(allButtons[i]);
+
+    }
+    console.log(copyAllButtons);
+
+
+    function changeButtonColourToRed() {
+        for (let i = 0; i < copyAllButtons.length; i++) {
+            copyAllButtons[i].classList.value ="btn btn-danger";
+        }
+    }
+
+    function changeButtonColourToGreen() {
+        for (let i = 0; i < copyAllButtons.length; i++) {
+            copyAllButtons[i].classList.value ="btn btn-success";
+        }
+    }    
+
+    function changeButtonColourToYellow() {
+        for (let i = 0; i < copyAllButtons.length; i++) {
+            copyAllButtons[i].classList.value ="btn btn-warning";
+        }
+    }
+
+    var resetColours = ["btn btn-primary", "btn btn-success", "btn btn-warning", "btn btn-primary", "btn btn-danger"];
+    function changeButtonColourToRandom() {
+        for (let i = 0; i < copyAllButtons.length; i++) {
+            var randNum = Math.floor(Math.random()*4);
+            copyAllButtons[i].classList.value = resetColours[randNum];
+        }
+    }
+    
+    function changeButtonColourToReset() {
+        for (let i = 0; i < copyAllButtons.length; i++) {
+            copyAllButtons[i].classList.value = allButtons[i].classList.value;
+        }
+    }
+
+
